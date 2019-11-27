@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wuyou-music-dao" />
+        <module name="wuyou-music-service" />
+        <module name="wuyou-music-entity" />
+        <module name="wuyou-music-controller" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
