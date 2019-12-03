@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>全部歌单-歌单-wu忧音乐</title>
-<link rel="stylesheet" href="/wuyou_Music/css/bootstrap.css">
-<link rel="stylesheet" href="/wuyou_Music/css/index.css">
-<script src="/wuyou_Music/js/jquery-3.3.1.min.js"></script>
-<script src="/wuyou_Music/js/bootstrap.js"></script>
-<link rel="stylesheet" href="/wuyou_Music/css/reset.css">
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/index.css">
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<link rel="stylesheet" href="/static/css/reset.css">
 
 <style>
 	.imglogo{
@@ -69,7 +69,7 @@
  <header class="header">
     <div class="header-container">
       <div class="header-top">
-        <a href="/wuyou_Music/index" class="logo"><img class="imglogo" src="/wuyou_Music/images/logo.png"></a>
+        <a href="/index" class="logo"><img class="imglogo" src="/static/images/logo.png"></a>
         <nav class="header-nav">
           <ul>
             <li><a href="javascript:;" class="header-nav__cur">音乐馆</a></li>
@@ -114,16 +114,16 @@
           </div>
         </div>
         <div class="header-login">
-          <a href="/wuyou_Music/login/index" class="login">登陆</a>
-          <a href="/wuyou_Music/logout" class="open-green">安全退出</a>
+          <a href="/login/index" class="login">登陆</a>
+          <a href="/logout" class="open-green">安全退出</a>
           <a href="javascript:;" id="username" class="open-vip">${lname }</a>
         </div>
       </div>
       <ul class="header-subNav">
-        <li><a href="/wuyou_Music/index" class="subNav-cur">首页</a></li>
+        <li><a href="/index" class="subNav-cur">首页</a></li>
         <li><a href="javascript:;">歌手</a></li>
         <li><a href="javascript:;">排行榜</a></li>
-        <li><a href="/wuyou_Music/songsheet">分类歌单</a></li>
+        <li><a href="/songsheet">分类歌单</a></li>
         <li><a href="javascript:;">MV</a></li>
       </ul>
     </div>
@@ -133,95 +133,35 @@
   <div class="container">
   	<div class="All-classification">
   		<ul class="All-classification-ul" id="All-ul">
-  			<li>
-  				<span><a href="">语种:</a></span>
-  				<span>
-  					<c:forEach var="community" items="${pvo.communityEntities}">
-                    <c:choose>
-                        <c:when test="${community.cmid == pvo3.currentCmid}" >
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:when>
-                        <c:otherwise>
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
-  				</span>
-  			</li>
-  			<li>
-  				<span><a href="">风格:</a></span>
-  				<span>
-  					<c:forEach var="community" items="${pvo2.communityEntities}">
-                    <c:choose>
-                        <c:when test="${community.cmid == pvo3.currentCmid}" >
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:when>
-                        <c:otherwise>
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:otherwise>
-                    </c:choose>
-                	</c:forEach>
-  				</span>
-  			</li>
-  			<li>
-  				<span><a href="">场景:</a></span>
-  				<span>
-  					<c:forEach var="community" items="${pvo3.communityEntities}">
-                    <c:choose>
-                        <c:when test="${community.cmid == pvo3.currentCmid}" >
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:when>
-                        <c:otherwise>
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:otherwise>
-                    </c:choose>
-                	</c:forEach>
-  				</span>
-  			</li>
-  			<li>
-  				<span><a href="">性格:</a></span>
-  				<span>
-  					<c:forEach var="community" items="${pvo4.communityEntities}">
-                    <c:choose>
-                        <c:when test="${community.cmid == pvo4.currentCmid}" >
-                               <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:when>
-                        <c:otherwise>
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:otherwise>
-                    </c:choose>
-                	</c:forEach>
-  				</span>
-  			</li>
-  			<li>
-  				<span><a href="">主题:</a></span>
-  				<span>
-  					<c:forEach var="community" items="${pvo5.communityEntities}">
-                    <c:choose>
-                        <c:when test="${community.cmid == pvo5.currentCmid}" >
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:when>
-                        <c:otherwise>
-                                <a href="/wuyou_Music/songsheet?cmid=${community.cmid}">${community.cmname}</a>
-                        </c:otherwise>
-                    </c:choose>
-                	</c:forEach>
-  				</span>
-  			</li>
+            <c:forEach items="${classification}" var="cl">
+                <li>
+                    <span>${cl.cname}</span>
+                    <span>
+                        <c:forEach items="${community}" var="c">
+                            <c:choose>
+                                <c:when test="${c.classificationid == cl.cid}">
+                                    <a href="/songsheet?pageNum=${c.cmid}">${c.cmname}</a>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </span>
+                </li>
+            </c:forEach>
   		</ul>
   	</div>
 	<ul class="ul">
-		<c:forEach var="song_sheet" items="${pvo.song_sheetEntities}">
+
+		<c:forEach var="songSheet" items="${songSheet}">
 			<li>
-				<a href="/wuyou_Music/songlist?ssid=${song_sheet.ssid}" class="a">
-		           <!-- <img class="img" src="/wuyou_Music/images/cont/slider_img1.jpg" alt="图片"> -->
-		       		<img class="img" src="${song_sheet.simg_address}" alt="图片">
-		        </a>
-				<h3>
-	                     ${song_sheet.ssname}
-	            </h3>
+                <a href="/songlist?ssid=${songSheet.ssid}" class="a">
+                    <img class="img" src="${songSheet.simgAddress}" alt="图片">
+                </a>
+                <h3>
+                        ${songSheet.ssname}
+                </h3>
 			</li>
         </c:forEach>
+
 	</ul>
   </div>
   <!-- 分页 -->
@@ -253,6 +193,6 @@
 			name="用户名";
 		}
 </script>
- <script src="/wuyou_Music/js/jquery.min.js"></script>
-  <script src="/wuyou_Music/js/script.js"></script>
+ <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/script.js"></script>
 </html>

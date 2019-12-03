@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CommunityDao">
+    <select id="getAll" resultType="com.entity.CommunityEntity">
+        select cmid, cmname, classificationid from community
+    </select>
+    <insert id="insert" parameterType="com.entity.CommunityEntity">
+        insert into community(cmid, cmname, classificationid) values (#{cmid},#{cmname},#{classificationid})
+    </insert>
+    <delete id="delete">
+        delete from community where cmid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.CommunityEntity">
+        update classification set
+        cname = #{cmname},
+        classificationid = #{classificationid}
+        where cmid = #{id}
+    </update>
+</mapper>

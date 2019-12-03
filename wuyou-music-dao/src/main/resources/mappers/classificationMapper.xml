@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ClassificationDao">
+    <select id="getAll" resultType="com.entity.ClassificationEntity">
+        select cid,cname from classification
+    </select>
+    <insert id="insert" parameterType="com.entity.ClassificationEntity">
+        insert into classification(cid, cname) values (#{cid},#{cname})
+    </insert>
+    <delete id="delete">
+        delete from classification where cid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.ClassificationEntity">
+        update classification set cname = #{cname} where cid = #{id}
+    </update>
+</mapper>

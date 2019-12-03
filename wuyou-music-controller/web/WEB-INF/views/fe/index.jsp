@@ -10,7 +10,7 @@
   <meta name="description" content="" />
 
   <link href="/static/css/reset.css" type="text/css" rel="stylesheet"/>
-  <link href="static/css/index.css" type="text/css" rel="stylesheet"/>
+  <link href="/static/css/index.css" type="text/css" rel="stylesheet"/>
 </head>
 <style>
 	.imglogo{
@@ -73,16 +73,16 @@
           </div>
         </div>
         <div class="header-login">
-          <a href="/static/login/index" class="login">登陆</a>
-          <a href="/static/logout" class="open-green">安全退出</a>
+          <a href="/login/index" class="login">登陆</a>
+          <a href="/logout" class="open-green">安全退出</a>
           <a href="javascript:;" id="username" class="open-vip">${lname}</a>
         </div>
       </div>
       <ul class="header-subNav">
-        <li><a href="/static/index" class="subNav-cur">首页</a></li>
+        <li><a href="/index" class="subNav-cur">首页</a></li>
         <li><a href="javascript:;">歌手</a></li>
         <li><a href="">排行榜</a></li>
-        <li><a href="/static/songsheet">分类歌单</a></li>
+        <li><a href="/songsheet">分类歌单</a></li>
         <li><a href="javascript:;">MV</a></li>
       </ul>
     </div>

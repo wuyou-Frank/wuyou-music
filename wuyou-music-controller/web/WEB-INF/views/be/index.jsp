@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="/wuyou_Music/css/bootstrap.css" rel="stylesheet">
-<script src="/wuyou_Music/js/jquery-3.3.1.min.js" ></script>
-<script src="/wuyou_Music/js/bootstrap.js"></script>
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<script src="/static/js/jquery-3.3.1.min.js" ></script>
+<script src="/static/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="container">
@@ -43,13 +43,13 @@
 			</ul>
 		</div>
 		<div class="col-md-10 column">
-			<h1>数据显示<h1>
+			<h1>数据显示</h1>
 		</div>
 	</div>
 	
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<div class="center-block style="width:400px;max-width:100%;background-color:#ccc;">
+			<div class="center-block style= width:400px;max-width:100%;background-color:#ccc;">
 				<h1></h1>
 			</div>
 		</div>
