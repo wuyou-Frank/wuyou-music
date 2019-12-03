@@ -30,7 +30,6 @@ public class ClassificationController {
             @RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
             @RequestParam(value = "pageSize",required = false,defaultValue = "5")int pageSize,
             Model model){
-
         int id = pageNum;
         System.out.println("pageNum = " + pageNum);
         System.out.println("pageSize = " + pageSize);
