@@ -4,9 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.PlayRecoredsDao">
     <select id="getAll" resultType="com.entity.PlayRecoredsEntity">
-        select pid, pname, psinger, palbum, psong_address, pimg_address from play_recoreds
-        where
-        order by ssid
+        select pid, pname, psinger, palbum, psong_address, pimg_address from play_recoreds order by pid
     </select>
     <insert id="insert" parameterType="com.entity.PlayRecoredsEntity">
         insert into play_recoreds(pname, psinger, palbum, psong_address, pimg_address)

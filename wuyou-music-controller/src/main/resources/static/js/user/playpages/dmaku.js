@@ -9,8 +9,8 @@
 			var playlist=[];
 			for(var i =0;i<data.length;i++){
 				var json = {artist:data[i].psinger,title:data[i].pname,
-						album:data[i].palbum,cover:data[i].pimg_address,
-						mp3:data[i].psong_address,mp32:data[i].simpleName
+						album:data[i].palbum,cover:data[i].pimgAddress,
+						mp3:data[i].psongAddress,mp32:data[i].simpleName
 				};
 				playlist.push(json);
 				
