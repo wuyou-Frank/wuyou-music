@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/wuyou_Music/css/index.css">
-<link rel="stylesheet" href="/wuyou_Music/css/reset.css">
-<link rel="stylesheet" href="/wuyou_Music/css/bootstrap.css">
-<script src="/wuyou_Music/js/jquery-3.3.1.min.js"></script>
-<script src="/wuyou_Music/js/bootstrap.js"></script>
+<link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/reset.css">
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
 <style>
 	.imglogo{
 		margin-top:-20px;
@@ -31,7 +31,7 @@
 <header class="header">
     <div class="header-container">
       <div class="header-top">
-        <a href="/wuyou_Music/index" class="logo"><img class="imglogo" src="/wuyou_Music/images/logo.png"></a>
+        <a href="/index" class="logo"><img class="imglogo" src="/static/images/logo.png"></a>
         <nav class="header-nav">
           <ul>
             <li><a href="javascript:;" class="header-nav__cur">音乐馆</a></li>
@@ -76,16 +76,16 @@
           </div>
         </div>
         <div class="header-login">
-          <a href="/wuyou_Music/login/index" class="login">登陆</a>
-          <a href="/wuyou_Music/logout" class="open-green">安全退出</a>
+          <a href="/login/index" class="login">登陆</a>
+          <a href="/logout" class="open-green">安全退出</a>
           <a href="javascript:;" id="username" class="open-vip">${lname}</a>
         </div>
       </div>
       <ul class="header-subNav">
-        <li><a href="/wuyou_Music/index" class="subNav-cur">首页</a></li>
+        <li><a href="/index" class="subNav-cur">首页</a></li>
         <li><a href="javascript:;">歌手</a></li>
         <li><a href="javascript:;">排行榜</a></li>
-        <li><a href="/wuyou_Music/songsheet">分类歌单</a></li>
+        <li><a href="/songsheet">分类歌单</a></li>
         <li><a href="javascript:;">MV</a></li>
       </ul>
     </div>
@@ -112,21 +112,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach  var="song_List" items="${pvo.song_ListEntities}">
+					<c:forEach  var="songlist" items="${songlist.list}">
 						<tr class="info">
 						<td>
-							${song_List.slid}
+							${songlist.slid}
 						</td>
 						<td>
-							${song_List.slname}
+							${songlist.slname}
+                            <a href="/playpages?slid=${songlist.slid}">播放</a>
+                            <a href="#">下载</a>
 						</td>
 						<td>
-							${song_List.singer }
+							${songlist.slinger}
 						</td>
 						<td>
-							${song_List.album }
-							<a  href="/wuyou_Music/playpages/index?pname=${song_List.slname }&psinger=${song_List.singer}&palbum=${song_List.album}&psong_address=${song_List.song_address}&pimg_address=${song_List.img_address}">播放</a>
-							<a href="#">下载</a>
+							${songlist.slalbum}
 						</td>
 					</tr>
 					</c:forEach>
@@ -137,16 +137,16 @@
 		<div class="col-md-12 column">
 			<ul class="pagination">
 				<li>
-					 <a href="/wuyou_Music/songlist?pageno=${pvo.pageInfo.first}">首页</a>
+					 <a href="/songlist?pageNum=1">首页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songlist?pageno=${pvo.pageInfo.prev}">上一页</a>
+					 <a href="/songlist?pageNum=${songlist.prePage}">上一页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songlist?pageno=${pvo.pageInfo.next}">下一页</a>
+					 <a href="/songlist?pageNum=${songlist.nextPage}">下一页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songlist?pageno=${pvo.pageInfo.last}">尾页</a>
+					 <a href="/songlist?pageNum=${songlist.pages}">尾页</a>
 				</li>
 			</ul>
 		</div>

@@ -150,7 +150,7 @@
   	</div>
 	<ul class="ul">
 
-		<c:forEach var="songSheet" items="${songSheet}">
+		<c:forEach var="songSheet" items="${songSheet.list}">
 			<li>
                 <a href="/songlist?ssid=${songSheet.ssid}" class="a">
                     <img class="img" src="${songSheet.simgAddress}" alt="图片">
@@ -169,16 +169,16 @@
 		<div class="col-md-12 column">
 			<ul class="pagination">
 				<li>
-					 <a href="/wuyou_Music/songsheet?ssname=${song_sheet.ssname}&cimd=${pvo.currentCmid}&pageno=${pvo.pageInfo.first}">首页</a>
+					 <a href="/songsheet?pageNum=1">首页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songsheet?ssname=${song_sheet.ssname}&cimd=${pvo.currentCmid}&pageno=${pvo.pageInfo.prev}">上一页</a>
+					 <a href="/songsheet?pageNum=${songSheet.prePage}">上一页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songsheet?ssname=${song_sheet.ssname}&cimd=${pvo.currentCmid}&pageno=${pvo.pageInfo.next}">下一页</a>
+					 <a href="/songsheet?pageNum=${songSheet.nextPage}">下一页</a>
 				</li>
 				<li>
-					 <a href="/wuyou_Music/songsheet?ssname=${song_sheet.ssname}&cimd=${pvo.currentCmid}&pageno=${pvo.pageInfo.last}">尾页</a>
+					 <a href="/songsheet?pageNum=${songSheet.pages}">尾页</a>
 				</li>
 			</ul>
 		</div>

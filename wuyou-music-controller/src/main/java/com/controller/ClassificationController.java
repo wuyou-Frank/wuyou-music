@@ -30,15 +30,15 @@ public class ClassificationController {
             @RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
             @RequestParam(value = "pageSize",required = false,defaultValue = "5")int pageSize,
             Model model){
+        //此id 为community的id，也就是songsheet表的communityid
         int id = pageNum;
-        System.out.println("pageNum = " + pageNum);
-        System.out.println("pageSize = " + pageSize);
         List<ClassificationEntity> classification = classificationService.getAll();
         List<CommunityEntity> community = communityService.getAll();
         List<SongSheetEntity> songSheet = songSheetService.getAll(pageNum,pageSize,id);
+        PageInfo pageInfo = new PageInfo(songSheet);
         model.addAttribute("classification",classification);
         model.addAttribute("community",community);
-        model.addAttribute("songSheet",songSheet);
+        model.addAttribute("songSheet",pageInfo);
         return "fe/viewsongsheet/view";
     }
 }

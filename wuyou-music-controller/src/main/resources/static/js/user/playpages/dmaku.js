@@ -5,7 +5,7 @@
 		shuffle = localStorage.shuffle || 'false',
 		continous = true,
 		autoplay = true
-		$.getJSON("/wuyou_Music/playrecoreds/select",function(data){
+		$.getJSON("/playrecoreds/select",function(data){
 			var playlist=[];
 			for(var i =0;i<data.length;i++){
 				var json = {artist:data[i].psinger,title:data[i].pname,
@@ -19,7 +19,7 @@
 	// Load playlist
 	for (var i=0; i<playlist.length; i++){
 		var item = playlist[i];
-		$('#playlist').append('<li>'+item.title+' - '+item.artist+" "+'<a href="/wuyou_Music/download?filename='+item.mp32+'">下载</a></li>');
+		$('#playlist').append('<li>'+item.title+' - '+item.artist+" "+'<a href="/download?filename='+item.mp32+'">下载</a></li>');
 		/*$('#playlist').append('<tr><td>'+item.title+'</td><td>'+item.artist+'<a href="#">删除</a></td></tr>');*/
 	}
 	

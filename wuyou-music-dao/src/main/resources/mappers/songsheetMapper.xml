@@ -8,7 +8,7 @@
     </select>
     <insert id="insert" parameterType="com.entity.SongSheetEntity">
         insert into song_sheet(ssid, ssname, simg_address, communityid) values
-        (#{ssid},#{ssname},#{simg_address},#{communityid})
+        (#{ssid},#{ssname},#{simgAddress},#{communityid})
     </insert>
     <delete id="delete">
         delete from song_sheet where ssid = #{id}
@@ -16,7 +16,7 @@
     <update id="update" parameterType="com.entity.SongSheetEntity">
         update song_sheet set
         ssname = #{ssname},
-        simg_address = #{simg_address}
+        simg_address = #{simgAddress}
         communityid = #{communityid}
         where ssid = #{id}
     </update>

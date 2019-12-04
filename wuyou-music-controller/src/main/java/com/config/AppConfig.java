@@ -47,14 +47,11 @@ public class AppConfig implements WebMvcConfigurer {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
-        //
-        sqlSessionFactoryBean.setPlugins(pageInterceptor());
-        //
         PathMatchingResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
         Resource[] resources = resourcePatternResolver.getResources("classpath:mappers/**/*.xml");
         sqlSessionFactoryBean.setMapperLocations(resources);
-
-        sqlSessionFactoryBean.setConfiguration(getConfiguration());
+        sqlSessionFactoryBean.setConfiguration(configuration());
+        sqlSessionFactoryBean.setPlugins(pageInterceptor());
         return sqlSessionFactoryBean.getObject();
     }
 
@@ -66,7 +63,7 @@ public class AppConfig implements WebMvcConfigurer {
         pageInterceptor.setProperties(properties);
         return  pageInterceptor;
     }
-    private org.apache.ibatis.session.Configuration getConfiguration(){
+    private org.apache.ibatis.session.Configuration configuration(){
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setLogImpl(StdOutImpl.class);
         configuration.setMapUnderscoreToCamelCase(true);

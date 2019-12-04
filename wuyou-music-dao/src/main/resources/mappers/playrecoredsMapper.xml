@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PlayRecoredsDao">
+    <select id="getAll" resultType="com.entity.PlayRecoredsEntity">
+        select pid, pname, psinger, palbum, psong_address, pimg_address from play_recoreds
+        where
+        order by ssid
+    </select>
+    <insert id="insert" parameterType="com.entity.PlayRecoredsEntity">
+        insert into play_recoreds(pname, psinger, palbum, psong_address, pimg_address)
+        values
+        (#{pname},#{psinger},#{palbum},#{psongAddress},#{pimgAddress})
+    </insert>
+    <delete id="delete">
+        delete from play_recoreds
+        where
+        pid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.PlayRecoredsEntity">
+        update play_recoreds set
+        pname = #{pname},
+        psinger = #{psinger},
+        palbum = #{palbum},
+        psong_address = #{psongAddress},
+        pimg_address = #{pimgAddress}
+        where
+        pid = #{id}
+    </update>
+</mapper>

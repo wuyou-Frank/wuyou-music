@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SongListDao">
+    <select id="getAll" resultType="com.entity.SongListEntity">
+        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
+        from song_list
+        where song_sheetid = #{id}
+        order by slid
+    </select>
+    <select id="getById" resultType="com.entity.SongListEntity">
+        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
+        from song_list
+        where slid = #{id}
+    </select>
+    <insert id="insert" parameterType="com.entity.SongListEntity">
+        insert into song_list(slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid)
+         values
+        (#{slname},#{slinger},#{slalbum},#{slsongAddress},#{slimgAddress},#{songAheetid})
+    </insert>
+    <delete id="delete">
+        delete from song_list where slid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.SongListEntity">
+        update song_list set
+        slname = #{slname},
+        slinger = #{slinger},
+        slalbum= #{slalbum},
+        slsong_address = #{slsongAddress},
+        slimg_address = #{slimgAddress},
+        song_sheetid = #{songAheetid},
+        where slid = #{id}
+    </update>
+</mapper>
