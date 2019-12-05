@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,6 +28,10 @@ public class PlayRecoredsController {
     public List<PlayRecoredsEntity> select(
             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
             @RequestParam(value = "pageSize",defaultValue = "3",required = false)int pageSize){
-        return playRecoredsService.getAll(pageNum,pageSize);
+        List<PlayRecoredsEntity> result = playRecoredsService.getAll(pageNum,pageSize);
+        System.out.println("result = " + result);
+        return result;
     }
+
+
 }

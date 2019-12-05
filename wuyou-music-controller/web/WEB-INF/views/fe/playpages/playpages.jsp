@@ -55,8 +55,11 @@
     <table >
         <tr></tr>
     </table>
+
+
     <script src="/static/js/user/playpages/jquery-ui-1.8.17.custom.min.js"></script>
     <script src="/static/js/user/playpages/dmaku.js"></script>
+
 
     <!--效果html结束-->
 

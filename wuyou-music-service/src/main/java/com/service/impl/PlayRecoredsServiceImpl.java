@@ -18,7 +18,7 @@ public class PlayRecoredsServiceImpl implements PlayRecoredsService {
     private SongListDao songListDao;
 
     @Override
-    public List<PlayRecoredsEntity> getAll(int pageNum, int pageSize) {
+    public List<PlayRecoredsEntity> getAll(int pageNum,int pageSize) {
         return playRecoredsDao.getAll(pageNum,pageSize);
     }
 

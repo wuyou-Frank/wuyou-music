@@ -155,7 +155,9 @@
 		</div>
 	</div>
 </div>
+
 </body>
+
 <script type="text/javascript">
 		var name = document.getElementById("username").innerText;
 		if(name == ""){
