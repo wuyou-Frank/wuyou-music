@@ -1,4 +1,4 @@
-package com.controller.fe;
+package com.controller;
 
 import com.entity.SongListEntity;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,10 @@ public class IndexController {
     @RequestMapping("/search")
     public String search(){
         return "fe/search";
+    }
+    @RequestMapping("/classification/index")
+    public String classificationIndex(){
+        return "be/classification/list";
     }
 
 

@@ -12,6 +12,10 @@ public class ClassificationServiceImpl implements ClassificationService {
     @Autowired
     private ClassificationDao classificationDao;
     @Override
+    public List<ClassificationEntity> getAllPage(int pageNum,int pageSize) {
+        return classificationDao.getAllPage(pageNum,pageSize);
+    }
+    @Override
     public List<ClassificationEntity> getAll() {
         return classificationDao.getAll();
     }

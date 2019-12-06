@@ -15,7 +15,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-4 column">
-			<h1>后台管理</h1>
+			<h1>wuyou音乐后台管理</h1>
 		</div>
 		<div class="col-md-8 column">
 			<h1 class="pull-right usernaem">当前用户：${aname}</h1>
@@ -26,19 +26,19 @@
 		<div class="col-md-2 column">
 			<ul class="nav nav-pills nav-stacked">
 				<li>
-					<a href="/wuyou_Music/userlogininformation/index">用户信息管理</a>
+					<a href="/userlogininformation/index">用户信息管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/classification/index">分类管理</a>
+					<a href="/classification/index">分类管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/community/index">风格分类</a>
+					<a href="/community/index">风格分类</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songsheet/index">歌单</a>
+					<a href="/songsheet/index">歌单</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songlist/index">歌曲列表</a>
+					<a href="/songlist/index">歌曲列表</a>
 				</li>
 			</ul>
 		</div>

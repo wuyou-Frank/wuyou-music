@@ -20,12 +20,13 @@ public class SongListComtroller {
 
     @RequestMapping("/songlist")
     public String songlist(@RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
-                           @RequestParam(value = "pageSize",required = false,defaultValue = "5")int pageSize,
+                           @RequestParam(value = "pageSize",required = false,defaultValue = "2")int pageSize,
+                           @RequestParam(value = "id",required = false,defaultValue = "1")int id,
                            Model model){
-        int id = pageNum;
         List<SongListEntity> songlist = songListService.getAll(pageNum,pageSize,id);
         PageInfo pageInfo = new PageInfo(songlist);
         model.addAttribute("songlist",pageInfo);
+        model.addAttribute("id",id);
         return "fe/viewsonglist/songlist";
     }
     @RequestMapping("/songlist/select")

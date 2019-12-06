@@ -7,11 +7,11 @@
 <title></title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="/wuyou_Music/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/bootstrap.css" rel="stylesheet">
 
-<script src="/wuyou_Music/js/jquery-3.3.1.min.js" ></script>
+<script src="/static/js/jquery-3.3.1.min.js" ></script>
 
-<script src="/wuyou_Music/js/bootstrap.js"></script>
+<script src="/static/js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -60,6 +60,7 @@
 			<button href="#" class="btn btn-info add">新增<tton>
 		</div>
 	</div>
+
 
 	<div class="row clearfix">
 		<div class="col-md-12 column">
@@ -116,6 +117,6 @@
 </script>
 
 
-<script src="/wuyou_Music/js/admin/classification/list.js"></script>
+<script src="/static/js/admin/classification/list.js"></script>
 </body>
 </html>

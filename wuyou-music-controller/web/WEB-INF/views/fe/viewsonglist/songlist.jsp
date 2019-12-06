@@ -137,16 +137,16 @@
 		<div class="col-md-12 column">
 			<ul class="pagination">
 				<li>
-					 <a href="/songlist?pageNum=1">首页</a>
+					 <a href="/songlist?pageNum=1&${id}">首页</a>
 				</li>
 				<li>
-					 <a href="/songlist?pageNum=${songlist.prePage}">上一页</a>
+					 <a href="/songlist?pageNum=${songlist.prePage}&${id}">上一页</a>
 				</li>
 				<li>
-					 <a href="/songlist?pageNum=${songlist.nextPage}">下一页</a>
+					 <a href="/songlist?pageNum=${songlist.nextPage}&${id}">下一页</a>
 				</li>
 				<li>
-					 <a href="/songlist?pageNum=${songlist.pages}">尾页</a>
+					 <a href="/songlist?pageNum=${songlist.pages}&${id}">尾页</a>
 				</li>
 			</ul>
 		</div>

@@ -152,7 +152,7 @@
 
 		<c:forEach var="songSheet" items="${songSheet.list}">
 			<li>
-                <a href="/songlist?ssid=${songSheet.ssid}" class="a">
+                <a href="/songlist?id=${songSheet.ssid}" class="a">
                     <img class="img" src="${songSheet.simgAddress}" alt="图片">
                 </a>
                 <h3>
