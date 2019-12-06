@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="keywords" content="" />
   <meta name="description" content="" />
-
+  <script src="/static/js/jquery-3.3.1.min.js"></script>
   <link href="/static/css/reset.css" type="text/css" rel="stylesheet"/>
   <link href="/static/css/index.css" type="text/css" rel="stylesheet"/>
 </head>
@@ -38,7 +38,7 @@
           </ul>
         </nav>
         <div class="header-search">
-          <input type="text" class="text" placeholder="here...">
+          <input type="text" class="text" id="text" placeholder="here...">
           <div class="btn"><i class="icon-sprite"></i></div>
           <div class="result">
             <a href="javascript:;" class="result-item">
@@ -812,6 +812,7 @@
 
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/script.js"></script>
+  <script src="/static/js/user/index/index.js"></script>
 <script type="text/javascript">
 		var name = document.getElementById("username").innerText;
 		if(name == ""){

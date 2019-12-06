@@ -5,59 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>全部歌单-歌单-wu忧音乐</title>
-<link rel="stylesheet" href="/static/css/bootstrap.css">
+<title>Insert title here</title>
+
 <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/reset.css">
+<link rel="stylesheet" href="/static/css/bootstrap.css">
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script src="/static/js/bootstrap.js"></script>
-<link rel="stylesheet" href="/static/css/reset.css">
-
 <style>
 	.imglogo{
 		margin-top:-20px;
 		width:200px;
 		height: 100px;
 	}
-	.container{
-		margin:0 auto ;
-		width:1200px;
-		height:1000px;
-	}
-	.All-classification{
-		display:inline-block;
-		width:1200px;
-		height:300px;
-		background-color: #ECFFFF;
-	}
-	.All-classification-ul li{
+	.info a{
 		display: inline-block;
-		width:1200px;
-		height: 60px;
-	}
-	.All-classification-ul li span:nth-child(1){
-		display:inline-block;
-		text-align: center;
-		line-height: 60px;
-		font-size:23px;
-		float: left;
-	}
-	.All-classification-ul li span:nth-child(2) a{
-		display:inline-block;
-		margin-left:5px;
-		margin-top:15px;
-		line-height: 30px;
-		float: left;
-	}
-	.ul li{
-		display: inline-block;
-		width:200px;
-		float: left;
-		margin: 40px;
-		margin-left:50px;
-	}
-	.img{
-		width:200px;
-		height:200px;
 	}
 	.btn{
 		margin-left: 210px;
@@ -66,7 +28,7 @@
 </style>
 </head>
 <body>
- <header class="header">
+<header class="header">
     <div class="header-container">
       <div class="header-top">
         <a href="/index" class="logo"><img class="imglogo" src="/static/images/logo.png"></a>
@@ -79,7 +41,7 @@
           </ul>
         </nav>
         <div class="header-search">
-          <input type="text" class="text" placeholder="here...">
+          <input type="text" class="text" placeholder="here..." value="${name}">
           <div class="btn"><i class="icon-sprite"></i></div>
           <div class="result">
             <a href="javascript:;" class="result-item">
@@ -116,7 +78,7 @@
         <div class="header-login">
           <a href="/login/index" class="login">登陆</a>
           <a href="/logout" class="open-green">安全退出</a>
-          <a href="javascript:;" id="username" class="open-vip">${lname }</a>
+          <a href="javascript:;" id="username" class="open-vip">${lname}</a>
         </div>
       </div>
       <ul class="header-subNav">
@@ -128,63 +90,74 @@
       </ul>
     </div>
   </header>
-  <!--歌单分类-->
-  <div class="container">
-  	<div class="All-classification">
-  		<ul class="All-classification-ul" id="All-ul">
-            <c:forEach items="${classification}" var="cl">
-                <li>
-                    <span>${cl.cname}</span>
-                    <span>
-                        <c:forEach items="${community}" var="c">
-                            <c:choose>
-                                <c:when test="${c.classificationid == cl.cid}">
-                                    <a href="/songsheet?pageNum=${c.cmid}&id=${c.cmid}">${c.cmname}</a>
-                                </c:when>
-                            </c:choose>
-                        </c:forEach>
-                    </span>
-                </li>
-            </c:forEach>
-  		</ul>
-  	</div>
-	<ul class="ul">
-
-		<c:forEach var="songSheet" items="${songSheet.list}">
-			<li>
-                <a href="/songlist?ssid=${songSheet.ssid}" class="a">
-                    <img class="img" src="${songSheet.simgAddress}" alt="图片">
-                </a>
-                <h3>
-                        ${songSheet.ssname}
-                </h3>
-			</li>
-        </c:forEach>
-
-	</ul>
-  </div>
-  <!-- 分页 -->
- <div class="container">
+<!--歌曲列表-->
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table">
+				<thead>
+					<tr class="success">
+						<th>
+							编号
+						</th>
+						<th>
+							歌曲
+						</th>
+						<th>
+							歌手
+						</th>
+						<th>
+							专辑
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach  var="songlist" items="${result.list}">
+						<tr class="info">
+						<td>
+							${songlist.slid}
+						</td>
+						<td>
+							${songlist.slname}
+                            <a href="/playpages?slid=${songlist.slid}">播放</a>
+                            <a href="#">下载</a>
+						</td>
+						<td>
+							${songlist.slinger}
+						</td>
+						<td>
+							${songlist.slalbum}
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<ul class="pagination">
 				<li>
-					 <a href="/songsheet?pageNum=1&id=${id}">首页</a>
+					 <a href="/songlist/select?pageNum=1&name=${name}">首页</a>
 				</li>
 				<li>
-					 <a href="/songsheet?pageNum=${songSheet.prePage}&id=${id}">上一页</a>
+					 <a href="/songlist/select?pageNum=${result.prePage}&name=${name}">上一页</a>
 				</li>
 				<li>
-					 <a href="/songsheet?pageNum=${songSheet.nextPage}&id=${id}">下一页</a>
+					 <a href="/songlist/select?pageNum=${result.nextPage}&name=${name}">下一页</a>
 				</li>
 				<li>
-					 <a href="/songsheet?pageNum=${songSheet.pages}&id=${id}">尾页</a>
+					 <a href="/songlist/select?pageNum=${result.pages}&name=${name}">尾页</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
+		</div>
+	</div>
+</div>
+
 </body>
+
 <script type="text/javascript">
 		var name = document.getElementById("username").innerText;
 		if(name == ""){
@@ -192,6 +165,4 @@
 			name="用户名";
 		}
 </script>
- <script src="/static/js/jquery.min.js"></script>
-  <script src="/static/js/script.js"></script>
 </html>

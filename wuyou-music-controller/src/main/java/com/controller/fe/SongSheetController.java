@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.fe;
 
 import com.dao.SongSheetDao;
 import com.entity.ClassificationEntity;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class ClassificationController {
+public class SongSheetController {
     @Autowired
     private ClassificationService classificationService;
     @Autowired
@@ -28,10 +28,9 @@ public class ClassificationController {
     @RequestMapping("/songsheet")
     public String select(
             @RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
-            @RequestParam(value = "pageSize",required = false,defaultValue = "5")int pageSize,
+            @RequestParam(value = "pageSize",required = false,defaultValue = "16")int pageSize,
+            @RequestParam(value = "id",required = false,defaultValue = "1") int id,
             Model model){
-        //此id 为community的id，也就是songsheet表的communityid
-        int id = pageNum;
         List<ClassificationEntity> classification = classificationService.getAll();
         List<CommunityEntity> community = communityService.getAll();
         List<SongSheetEntity> songSheet = songSheetService.getAll(pageNum,pageSize,id);
@@ -39,6 +38,7 @@ public class ClassificationController {
         model.addAttribute("classification",classification);
         model.addAttribute("community",community);
         model.addAttribute("songSheet",pageInfo);
+        model.addAttribute("id",id);
         return "fe/viewsongsheet/view";
     }
 }

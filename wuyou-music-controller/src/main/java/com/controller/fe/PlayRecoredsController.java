@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.fe;
 
 import com.entity.PlayRecoredsEntity;
 import com.service.PlayRecoredsService;
@@ -29,7 +29,6 @@ public class PlayRecoredsController {
             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
             @RequestParam(value = "pageSize",defaultValue = "3",required = false)int pageSize){
         List<PlayRecoredsEntity> result = playRecoredsService.getAll(pageNum,pageSize);
-        System.out.println("result = " + result);
         return result;
     }
 

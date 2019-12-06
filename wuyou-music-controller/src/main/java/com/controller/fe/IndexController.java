@@ -1,10 +1,11 @@
-package com.controller;
+package com.controller.fe;
 
+import com.entity.SongListEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HelloController {
+public class IndexController {
     @RequestMapping("/index")
     public String index(){
         return "fe/index";
@@ -17,4 +18,10 @@ public class HelloController {
     public String login(){
         return "be/loginandregister/login";
     }
+    @RequestMapping("/search")
+    public String search(){
+        return "fe/search";
+    }
+
+
 }

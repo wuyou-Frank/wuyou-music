@@ -14,6 +14,14 @@
         from song_list
         where slid = #{id}
     </select>
+    <select id="getByName" resultType="com.entity.SongListEntity">
+        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
+        from song_list
+        where slname like "%"#{name}"%"
+        or slinger like "%"#{name}"%"
+        or slalbum like "%"#{name}"%"
+        order by slid
+    </select>
     <insert id="insert" parameterType="com.entity.SongListEntity">
         insert into song_list(slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid)
          values
