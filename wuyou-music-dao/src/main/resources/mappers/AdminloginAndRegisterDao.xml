@@ -2,17 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.AdminloginDao">
-    <select id="getAll" resultType="com.entity.AdminloginEntity">
-        select alid,alname,alpassword from adminlogin order by alid
+<mapper namespace="com.dao.AdminloginAndRegisterDao">
+    <select id="getAll" resultType="com.entity.AdminloginAndRegisterEntity">
+        select alid,alname,alpassword from adminlogin
     </select>
-    <insert id="insert" parameterType="com.entity.AdminloginEntity">
+    <insert id="insert" parameterType="com.entity.AdminloginAndRegisterEntity">
         insert into adminlogin(alname, alpassword) values (#{alname},#{alpassword})
     </insert>
     <delete id="delete">
         delete from adminlogin where alid = #{id}
     </delete>
-    <update id="update" parameterType="com.entity.AdminloginEntity">
+    <update id="update" parameterType="com.entity.AdminloginAndRegisterEntity">
         update adminlogin set alname = #{alname},alpassword = #{alpassword} where alid = #{id}
     </update>
 </mapper>

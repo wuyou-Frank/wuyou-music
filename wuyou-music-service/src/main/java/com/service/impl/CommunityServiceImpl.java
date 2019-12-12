@@ -31,4 +31,5 @@ public class CommunityServiceImpl implements CommunityService {
     public void delete(int id) {
         communityDao.delete(id);
     }
+
 }

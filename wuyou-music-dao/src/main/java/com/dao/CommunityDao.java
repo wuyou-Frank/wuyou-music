@@ -9,4 +9,5 @@ public interface CommunityDao {
     void delete(int id);
     void update(CommunityEntity communityEntity);
     void insert(CommunityEntity communityEntity);
+    void deleteClassficationId(int id);
 }

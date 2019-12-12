@@ -8,6 +8,7 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <meta name="keywords" content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
 <link href="/static/css/login/style.css" rel='stylesheet' type='text/css' />
+<script src="/static/js/jquery-3.3.1.min.js"></script>
 </head>
 <style>
 	.Verification_Code_text{
@@ -44,7 +45,7 @@
 	}
 </style>
 <body>
- <h1>wu忧音乐后台登陆窗口</h1>
+ <h1>wu忧音乐后台注册窗口</h1>
 <div class="login-form">
 		<div class="head-info">
 			<label class="lbl-1"> </label>
@@ -55,29 +56,16 @@
 	<div class="avtar">
 		<img src="/static/images/login/avtar.png" />
 	</div>
-			<form action="/login" method="post">
-					<input type="text" class="text" value="Username" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
-						<div class="key">
-						<input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-						</div>
-						<div>
-						<input class="Verification_Code_text" type="text" name="vc" class="inputimg"/>
-						</div>
-						<a class="Verification_Code" href="#" onclick="changeVc()">
-							<img class="Verification_Code_img" id="imageVc" src="/vc" />
-						</a><br/>
-						<a class="register" href="/register">注  册</a>
-						
-					<div class="signin">
-						<input type="submit" value="登   陆" >
-					</div>
-			</form>
-</div>
-<script>
-	function changeVc(){
-		var image = document.getElementById("imageVc");
-		image.setAttribute("src","/vc?t=" + new Date());
-	}
-</script>
+		<form action="/register" method="post">
+				<input type="text" class="text" value="Username" name="alname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
+			${alname}
+			<div class="key">
+				<input type="password" value="Password" name="alpassword" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+			</div>
+			<div class="signin">
+				<input type="submit" value="注   册" >
+			</div>
+		</form>
+	</div>
 </body>
 </html>

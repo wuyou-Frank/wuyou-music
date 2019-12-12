@@ -2,6 +2,8 @@ package com.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
+
+import com.interceptor.LoginInterceptor;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -22,7 +24,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan({"com.service","com.controller"})
+@ComponentScan({"com.service","com.controller","com.interceptor","com.verificationcode"})
 @MapperScan("com.dao")
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
@@ -86,17 +88,17 @@ public class AppConfig implements WebMvcConfigurer {
         return viewResolver;
     }
     //拦截器
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        InterceptorRegistration interceptorRegistry =   registry.addInterceptor(new FirstInterceptor());
-//        interceptorRegistry.addPathPatterns("/**");
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        InterceptorRegistration interceptorRegistry =   registry.addInterceptor(new LoginInterceptor());
+        interceptorRegistry.addPathPatterns("/admin/index");
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        ResourceHandlerRegistration registration
-                = registry.addResourceHandler("/static/**");
-        registration.addResourceLocations("classpath:/static/");
+            ResourceHandlerRegistration registration
+                    = registry.addResourceHandler("/static/**");
+            registration.addResourceLocations("classpath:/static/");
     }
 
 }

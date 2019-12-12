@@ -12,5 +12,5 @@ public interface SongListDao {
     void insert(SongListEntity songListEntity);
     void update(SongListEntity songListEntity);
     void delete(int id);
-
+    void deleteSongSheeId(int id);
 }

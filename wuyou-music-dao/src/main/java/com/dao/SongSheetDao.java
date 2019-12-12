@@ -10,4 +10,5 @@ public interface SongSheetDao {
     void delete(int id);
     void update(SongSheetEntity songSheetEntity);
     void insert(SongSheetEntity songSheetEntity);
+    void deleteCommunityId(int id);
 }

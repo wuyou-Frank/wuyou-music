@@ -28,19 +28,19 @@
 		<div class="col-md-2 column">
 			<ul class="nav nav-pills nav-stacked">
 				<li>
-					<a href="/wuyou_Music/userlogininformation/index">用户信息管理</a>
+					<a href="/userlogininformation/index">用户信息管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/classification/index">分类管理</a>
+					<a href="/classification/index">分类管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/community/index">风格分类</a>
+					<a href="/community/index">风格分类</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songsheet/index">歌单</a>
+					<a href="/songsheet/index">歌单</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songlist/index">歌曲列表</a>
+					<a href="/songlist/index">歌曲列表</a>
 				</li>
 			</ul>
 		</div>
@@ -80,12 +80,10 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    修改信息
                 </h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal" role="form">
-
                     <div class="form-group">
                         <label for="cid" class="col-sm-2 control-label">分类编号</label>
                         <div class="col-sm-10">
@@ -98,7 +96,6 @@
                             <input type="text" class="form-control" id="cname" name="cname" />
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -111,10 +108,6 @@
 		</div>
 	</div>
 </div>
-
-<script>
-
-</script>
 
 
 <script src="/static/js/admin/classification/list.js"></script>

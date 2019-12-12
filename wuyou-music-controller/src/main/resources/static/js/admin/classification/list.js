@@ -15,7 +15,6 @@ $(function(){
 				
 				$tr.find("td:first").text(classification.cid);
 				$tr.find("td:eq(1)").text(classification.cname);
-				
 				$tr.find("td a:eq(0)").data("cid",classification.cid);
 				$tr.find("td a:eq(1)").data("cid",classification.cid);
 				$tr.appendTo("tbody");
@@ -64,7 +63,10 @@ $(function(){
         $.post("/be/classification/update",obj,function () {
             //2.第2种刷新方式
             // 修改成功 直接重新加载页面即可，相当于刷新。不要在servlet中进行跳转动作。
-            location.href="/be/classification/index";
+            // location.href="/classification/index";
+
+            $("tbody").empty();
+            getAll();
         });
     });//修改保存按钮单击事件
 	//新增操作,打开模式框
@@ -72,10 +74,7 @@ $(function(){
     $("#content").on("click",".add",function () {
     	$("#myModalLabel").html("添加信息");
         $("#save").data("op", "insert");
-        $("#cid").val("");
-        $("#cid").prop("disabled", "");
         $("#cname").val("");
-
         $("#myModal").modal('show');
     });
   //新增操作
@@ -85,7 +84,7 @@ $(function(){
             return;
         }
         $("#myModal").modal('hide');
-        var obj = {cid:$("#cid").val(),cname:$("#cname").val()};
+        var obj = {cname:$("#cname").val()};
         console.log(obj);
         $.post("/be/classification/insert",obj,function () {
             // 3.第三种刷新方式，直接清空表格数据，并重新加载数据
