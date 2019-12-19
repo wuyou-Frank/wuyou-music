@@ -42,6 +42,7 @@ public class SingerController {
                          @RequestParam(value = "name",required = false) String name,
                          Model model){
         SingerEntity singerEntity = singerService.getByName2(name);
+        System.out.println("singerEntity = " + singerEntity);
         List<SingerEntity> result = singerService.getByName(pageNum,pageSize,name);
         PageInfo pageInfo = new PageInfo(result);
         model.addAttribute("singerEntity",singerEntity);

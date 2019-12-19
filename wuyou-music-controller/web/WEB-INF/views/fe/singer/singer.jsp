@@ -26,6 +26,19 @@
 		margin-left: 210px;
 		margin-top: -60px;
 	}
+    .dimg{
+        margin-left: 100px;
+    }
+    .dimg>img{
+        width: 500px;
+        height: 300px;
+    }
+    .dimg>span{
+        font-size:20px;
+    }
+    .dspan{
+        margin-left: 100px;
+    }
 </style>
 </head>
 <body>
@@ -91,12 +104,18 @@
       </ul>
     </div>
   </header>
-<div>
-    <c:forEach  var="singerEntity" items="${singerEntity}">
-        <img src="${singerEntity.spicture}" alt="图片">
-    </c:forEach>
-12345678
+<div class="dimg">
+        <span>${singerEntity.sname}</span>
+     <img src="${singerEntity.spicture}" alt="图片">
 </div>
+<div class="dspan">
+    <span><a href="#">热门作品</a></span>
+    <span><a href="#">所有专辑</a></span>
+    <span><a href="#">相关MV</a></span>
+    <span><a href="#">艺人介绍</a></span>
+</div>
+
+
 <!--歌曲列表-->
 <div class="container">
 	<div class="row clearfix">
