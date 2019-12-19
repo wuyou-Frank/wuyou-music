@@ -93,7 +93,7 @@
   </header>
 <div>
     <c:forEach  var="singerEntity" items="${singerEntity}">
-        <img src="${singerEntity[0].spicture}" alt="图片">
+        <img src="${singerEntity.spicture}" alt="图片">
     </c:forEach>
 12345678
 </div>
