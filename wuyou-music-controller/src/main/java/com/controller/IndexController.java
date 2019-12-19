@@ -3,6 +3,7 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -37,6 +38,10 @@ public class IndexController {
     @RequestMapping("/community/index")
     public String community(){
         return "be/community/list";
+    }
+    @RequestMapping("/songsheet/index")
+    public String songsheet(){
+        return "be/songsheet/list";
     }
 
 

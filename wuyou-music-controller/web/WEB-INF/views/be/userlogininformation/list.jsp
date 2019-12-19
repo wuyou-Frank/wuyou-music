@@ -7,11 +7,11 @@
 <title></title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="/wuyou_Music/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/bootstrap.css" rel="stylesheet">
 
-<script src="/wuyou_Music/js/jquery-3.3.1.min.js" ></script>
+<script src="/static/js/jquery-3.3.1.min.js" ></script>
 
-<script src="/wuyou_Music/js/bootstrap.js"></script>
+<script src="/static/js/bootstrap.js"></script>
 
 </head>
 <body>
@@ -28,19 +28,19 @@
 		<div class="col-md-2 column">
 			<ul class="nav nav-pills nav-stacked">
 				<li>
-					<a href="/wuyou_Music/userlogininformation/index">用户信息管理</a>
+					<a href="/userlogininformation/index">用户信息管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/classification/index">分类管理</a>
+					<a href="/classification/index">分类管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/community/index">风格分类</a>
+					<a href="/community/index">风格分类</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songsheet/index">歌单</a>
+					<a href="/songsheet/index">歌单</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songlist/index">歌曲列表</a>
+					<a href="/songlist/index">歌曲列表</a>
 				</li>
 			</ul>
 		</div>
@@ -123,6 +123,6 @@
 </script>
 
 
-<script src="/wuyou_Music/js/admin/userlogininformation/list.js"></script>
+<script src="/static/js/admin/userlogininformation/list.js"></script>
 </body>
 </html>

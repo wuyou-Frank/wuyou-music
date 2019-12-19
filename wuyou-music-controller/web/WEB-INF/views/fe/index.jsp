@@ -80,7 +80,7 @@
       </div>
       <ul class="header-subNav">
         <li><a href="/index" class="subNav-cur">首页</a></li>
-        <li><a href="javascript:;">歌手</a></li>
+        <li><a href="/discover/singer">歌手</a></li>
         <li><a href="">排行榜</a></li>
         <li><a href="/songsheet">分类歌单</a></li>
         <li><a href="javascript:;">MV</a></li>

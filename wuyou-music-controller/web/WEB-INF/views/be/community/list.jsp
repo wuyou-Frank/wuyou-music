@@ -28,19 +28,19 @@
 		<div class="col-md-2 column">
 			<ul class="nav nav-pills nav-stacked">
 				<li>
-					<a href="/static/userlogininformation/index">用户信息管理</a>
+					<a href="/userlogininformation/index">用户信息管理</a>
 				</li>
 				<li>
-					<a href="/static/classification/index">分类管理</a>
+					<a href="/classification/index">分类管理</a>
 				</li>
 				<li>
-					<a href="/static/community/index">风格分类</a>
+					<a href="/community/index">风格分类</a>
 				</li>
 				<li>
-					<a href="/static/songsheet/index">歌单</a>
+					<a href="/songsheet/index">歌单</a>
 				</li>
 				<li>
-					<a href="/static/songlist/index">歌曲列表</a>
+					<a href="/songlist/index">歌曲列表</a>
 				</li>
 			</ul>
 		</div>

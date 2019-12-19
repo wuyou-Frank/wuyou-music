@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -41,7 +42,7 @@
           </ul>
         </nav>
         <div class="header-search">
-          <input type="text" class="text" placeholder="here..." value="${name}">
+          <input type="text" class="text" placeholder="here...">
           <div class="btn"><i class="icon-sprite"></i></div>
           <div class="result">
             <a href="javascript:;" class="result-item">
@@ -90,6 +91,12 @@
       </ul>
     </div>
   </header>
+<div>
+    <c:forEach  var="singerEntity" items="${singerEntity}">
+        <img src="${singerEntity[0].spicture}" alt="图片">
+    </c:forEach>
+12345678
+</div>
 <!--歌曲列表-->
 <div class="container">
 	<div class="row clearfix">
@@ -101,7 +108,7 @@
 							编号
 						</th>
 						<th>
-							歌曲
+							歌曲标题
 						</th>
 						<th>
 							歌手
@@ -112,21 +119,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach  var="songlist" items="${result.list}">
+					<c:forEach  var="singer" items="${result.list}">
 						<tr class="info">
 						<td>
-							${songlist.slid}
+							${singer.slid}
 						</td>
 						<td>
-							${songlist.slname}
-                            <a href="/playpages?slid=${songlist.slid}">播放</a>
+							${singer.slname}
+                            <a href="/playpages?slid=${singer.slid}">播放</a>
                             <a href="#">下载</a>
 						</td>
 						<td>
-							${songlist.sname}
+							${singer.sname}
 						</td>
 						<td>
-							${songlist.aname}
+							${singer.aname}
 						</td>
 					</tr>
 					</c:forEach>
@@ -137,16 +144,16 @@
 		<div class="col-md-12 column">
 			<ul class="pagination">
 				<li>
-					 <a href="/songlist/select?pageNum=1&name=${name}">首页</a>
+					 <a href="/songlist?pageNum=1&${id}">首页</a>
 				</li>
 				<li>
-					 <a href="/songlist/select?pageNum=${result.prePage}&name=${name}">上一页</a>
+					 <a href="/songlist?pageNum=${songlist.prePage}&${id}">上一页</a>
 				</li>
 				<li>
-					 <a href="/songlist/select?pageNum=${result.nextPage}&name=${name}">下一页</a>
+					 <a href="/songlist?pageNum=${songlist.nextPage}&${id}">下一页</a>
 				</li>
 				<li>
-					 <a href="/songlist/select?pageNum=${result.pages}&name=${name}">尾页</a>
+					 <a href="/songlist?pageNum=${songlist.pages}&${id}">尾页</a>
 				</li>
 			</ul>
 		</div>

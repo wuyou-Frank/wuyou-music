@@ -3,8 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SongSheetDao">
+    <select id="getAllById" resultType="com.entity.SongSheetEntity">
+        select ssid, ssname, simg_address, communityid
+        from song_sheet
+        where communityid = #{id}
+        order by ssid
+    </select>
     <select id="getAll" resultType="com.entity.SongSheetEntity">
-        select ssid, ssname, simg_address, communityid from song_sheet where communityid = #{id} order by ssid
+        select ss.ssid,ss.ssname,ss.simg_address,ss.communityid,c.cmname from song_sheet ss join community c
+        on ss.communityid = c.cmid
     </select>
     <insert id="insert" parameterType="com.entity.SongSheetEntity">
         insert into song_sheet(ssid, ssname, simg_address, communityid) values
@@ -16,8 +23,8 @@
     <update id="update" parameterType="com.entity.SongSheetEntity">
         update song_sheet set
         ssname = #{ssname},
-        simg_address = #{simgAddress}
+        simg_address = #{simgAddress},
         communityid = #{communityid}
-        where ssid = #{id}
+        where ssid = #{ssid}
     </update>
 </mapper>

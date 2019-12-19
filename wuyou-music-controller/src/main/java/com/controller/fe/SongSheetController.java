@@ -33,12 +33,12 @@ public class SongSheetController {
             Model model){
         List<ClassificationEntity> classification = classificationService.getAll();
         List<CommunityEntity> community = communityService.getAll();
-        List<SongSheetEntity> songSheet = songSheetService.getAll(pageNum,pageSize,id);
+        List<SongSheetEntity> songSheet = songSheetService.getAllById(pageNum,pageSize,id);
         PageInfo pageInfo = new PageInfo(songSheet);
         model.addAttribute("classification",classification);
         model.addAttribute("community",community);
         model.addAttribute("songSheet",pageInfo);
         model.addAttribute("id",id);
-        return "fe/viewsongsheet/view";
+        return "fe/songsheet/view";
     }
 }

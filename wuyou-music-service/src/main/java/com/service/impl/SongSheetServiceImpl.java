@@ -12,12 +12,18 @@ public class SongSheetServiceImpl implements SongSheetService {
     @Autowired
     private SongSheetDao songSheetDao;
     @Override
-    public List<SongSheetEntity> getAll(int pageNum, int pageSize,int id) {
-        return songSheetDao.getAll(pageNum,pageSize,id);
+    public List<SongSheetEntity> getAllById(int pageNum, int pageSize,int id) {
+        return songSheetDao.getAllById(pageNum,pageSize,id);
+    }
+
+    @Override
+    public List<SongSheetEntity> getAll() {
+        return songSheetDao.getAll();
     }
 
     @Override
     public void update(SongSheetEntity songSheetEntity) {
+
         songSheetDao.update(songSheetEntity);
     }
 

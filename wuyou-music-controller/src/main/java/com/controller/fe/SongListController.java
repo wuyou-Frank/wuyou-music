@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class SongListComtroller {
+public class SongListController {
     @Autowired
     private SongListService songListService;
 
@@ -27,14 +27,13 @@ public class SongListComtroller {
         PageInfo pageInfo = new PageInfo(songlist);
         model.addAttribute("songlist",pageInfo);
         model.addAttribute("id",id);
-        return "fe/viewsonglist/songlist";
+        return "fe/songlist/songlist";
     }
     @RequestMapping("/songlist/select")
     public String select(
             @RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
             @RequestParam(value = "pageSize",required = false,defaultValue = "1")int pageSize,
             String name, Model model){
-        System.out.println("name = " + name);
         List<SongListEntity>  result = songListService.getByNmae(pageNum,pageSize,name);
         PageInfo pageInfo = new PageInfo(result);
         model.addAttribute("name",name);

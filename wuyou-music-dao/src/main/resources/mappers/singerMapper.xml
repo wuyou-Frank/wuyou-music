@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SingerDao">
+    <select id="getAll" resultType="com.entity.SingerEntity">
+        select sid, sname, introduce,sex, languagesingerid,spicture
+        from singer
+        order by sid
+    </select>
+    <select id="getByName" resultType="com.entity.SingerEntity">
+        select s.sname,sl.slid,sl.slname,sl.slsong_address,a.aname
+        from singer_song_list_album ssla
+        join singer s on ssla.sid = s.sid
+        join song_list sl on ssla.slid = sl.slid
+        join album a on ssla.aid = a.aid
+        where s.sname = '德国'
+        order by sl.slid
+    </select>
+    <select id="getByName2" resultType="com.entity.SingerEntity">
+        select sid, sname, introduce, sex, languagesingerid, spicture from singer where sname = #{name}
+    </select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HistoryDao">
+    <select id="getAll" resultType="com.entity.HistoryEntity">
+        select hid, hname, hsinger, halbum, hsong_address, himg_address from history order by hid
+    </select>
+    <insert id="insert" parameterType="com.entity.HistoryEntity">
+        insert into history(hname, hsinger, halbum, hsong_address, himg_address)
+        values
+        (#{pname},#{psinger},#{palbum},#{psongAddress},#{pimgAddress})
+    </insert>
+    <delete id="delete">
+        delete from history
+        where
+        hid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.HistoryEntity">
+        update history set
+        hname = #{pname},
+        hsinger = #{psinger},
+        halbum = #{palbum},
+        hsong_address = #{psongAddress},
+        himg_address = #{pimgAddress}
+        where
+        hid = #{id}
+    </update>
+</mapper>

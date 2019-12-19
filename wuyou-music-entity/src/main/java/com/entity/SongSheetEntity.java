@@ -1,13 +1,14 @@
 package com.entity;
 
-import lombok.Data;
 
+import org.springframework.web.multipart.MultipartFile;
 
 public class SongSheetEntity {
     private Integer ssid;
     private String ssname;
     private String simgAddress;
     private Integer communityid;
+    private String cmname;
 
     @Override
     public String toString() {
@@ -16,7 +17,24 @@ public class SongSheetEntity {
                 ", ssname='" + ssname + '\'' +
                 ", simgAddress='" + simgAddress + '\'' +
                 ", communityid=" + communityid +
+                ", cmname='" + cmname + '\'' +
                 '}';
+    }
+
+    public String getSimgAddress() {
+        return simgAddress;
+    }
+
+    public void setSimgAddress(String simgAddress) {
+        this.simgAddress = simgAddress;
+    }
+
+    public String getCmname() {
+        return cmname;
+    }
+
+    public void setCmname(String cmname) {
+        this.cmname = cmname;
     }
 
     public Integer getSsid() {
@@ -33,14 +51,6 @@ public class SongSheetEntity {
 
     public void setSsname(String ssname) {
         this.ssname = ssname;
-    }
-
-    public String getSimgAddress() {
-        return simgAddress;
-    }
-
-    public void setSimgAddress(String simgAddress) {
-        this.simgAddress = simgAddress;
     }
 
     public Integer getCommunityid() {

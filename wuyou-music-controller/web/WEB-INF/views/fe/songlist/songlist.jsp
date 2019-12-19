@@ -123,10 +123,10 @@
                             <a href="#">下载</a>
 						</td>
 						<td>
-							${songlist.slinger}
+							${songlist.sname}
 						</td>
 						<td>
-							${songlist.slalbum}
+							${songlist.aname}
 						</td>
 					</tr>
 					</c:forEach>

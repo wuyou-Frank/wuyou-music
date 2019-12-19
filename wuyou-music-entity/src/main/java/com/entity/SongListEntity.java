@@ -1,16 +1,29 @@
 package com.entity;
 
-import lombok.Data;
-
-@Data
 public class SongListEntity {
     private Integer slid;
     private String slname;
-    private String slinger;
-    private String slalbum;
     private String slsongAddress;
     private String slimgAddress;
     private Integer songSheetid;
+    private String aname;//专辑
+    private String sname;//歌手
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public String getAname() {
+        return aname;
+    }
+
+    public void setAname(String aname) {
+        this.aname = aname;
+    }
 
     public Integer getSlid() {
         return slid;
@@ -26,22 +39,6 @@ public class SongListEntity {
 
     public void setSlname(String slname) {
         this.slname = slname;
-    }
-
-    public String getSlinger() {
-        return slinger;
-    }
-
-    public void setSlinger(String slinger) {
-        this.slinger = slinger;
-    }
-
-    public String getSlalbum() {
-        return slalbum;
-    }
-
-    public void setSlalbum(String slalbum) {
-        this.slalbum = slalbum;
     }
 
     public String getSlsongAddress() {

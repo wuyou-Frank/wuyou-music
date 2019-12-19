@@ -4,28 +4,33 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SongListDao">
     <select id="getAll" resultType="com.entity.SongListEntity">
-        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
-        from song_list
+        select s.sname,sl.slid, sl.slname, sl.slsong_address, sl.slimg_address,a.aname,sl.song_sheetid
+        from singer_song_list_album ssla
+        join singer s on s.sid = ssla.sid
+        join song_list sl on sl.slid = ssla.slid
+        join album a on a.aid = ssla.aid
         where song_sheetid = #{id}
         order by slid
     </select>
     <select id="getById" resultType="com.entity.SongListEntity">
-        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
+        select slid, slname, slsong_address, slimg_address, song_sheetid
         from song_list
         where slid = #{id}
     </select>
     <select id="getByName" resultType="com.entity.SongListEntity">
-        select slid, slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid
-        from song_list
-        where slname like "%"#{name}"%"
-        or slinger like "%"#{name}"%"
-        or slalbum like "%"#{name}"%"
+        select s.sname,sl.slid, sl.slname, sl.slsong_address, sl.slimg_address,a.aname,sl.song_sheetid
+        from singer_song_list_album ssla
+        join singer s on s.sid = ssla.sid
+        join song_list sl on sl.slid = ssla.slid
+        join album a on a.aid = ssla.aid
+        where sl.slname like "%"#{name}"%"
+        or s.sname like "%"#{name}"%"
         order by slid
     </select>
     <insert id="insert" parameterType="com.entity.SongListEntity">
-        insert into song_list(slname, slinger, slalbum, slsong_address, slimg_address, song_sheetid)
+        insert into song_list(slname, slsong_address, slimg_address, song_sheetid)
          values
-        (#{slname},#{slinger},#{slalbum},#{slsongAddress},#{slimgAddress},#{songAheetid})
+        (#{slname},#{slsongAddress},#{slimgAddress},#{songAheetid})
     </insert>
     <delete id="delete">
         delete from song_list where slid = #{id}
@@ -33,8 +38,6 @@
     <update id="update" parameterType="com.entity.SongListEntity">
         update song_list set
         slname = #{slname},
-        slinger = #{slinger},
-        slalbum= #{slalbum},
         slsong_address = #{slsongAddress},
         slimg_address = #{slimgAddress},
         song_sheetid = #{songAheetid},

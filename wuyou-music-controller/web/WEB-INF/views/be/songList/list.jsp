@@ -28,19 +28,19 @@
 		<div class="col-md-2 column">
 			<ul class="nav nav-pills nav-stacked">
 				<li>
-					<a href="/wuyou_Music/userlogininformation/index">用户信息管理</a>
+					<a href="/userlogininformation/index">用户信息管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/classification/index">分类管理</a>
+					<a href="/classification/index">分类管理</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/community/index">风格分类</a>
+					<a href="/community/index">风格分类</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songsheet/index">歌单</a>
+					<a href="/songsheet/index">歌单</a>
 				</li>
 				<li>
-					<a href="/wuyou_Music/songlist/index">歌曲列表</a>
+					<a href="/songlist/index">歌曲列表</a>
 				</li>
 			</ul>
 		</div>
