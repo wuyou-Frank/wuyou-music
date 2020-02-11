@@ -13,6 +13,18 @@ public class IndexController {
     public String index(){
         return "fe/index";
     }
+    @RequestMapping("/search")
+    public String search(){
+        return "fe/search";
+    }
+    @GetMapping("/fe/login")
+    public String userLogin(){
+        return "fe/loginandregister/login";
+    }
+    @GetMapping("/fe/register")
+    public String userRegister(){
+        return "fe/loginandregister/register";
+    }
     @RequestMapping("/admin/index")
     public String index2(){
         return "/be/index";
@@ -25,12 +37,6 @@ public class IndexController {
     public String register(){
         return "be/loginandregister/register";
     }
-
-    @RequestMapping("/search")
-    public String search(){
-        return "fe/search";
-    }
-
     @RequestMapping("/classification/index")
     public String classificationIndex(){
         return "be/classification/list";
@@ -43,6 +49,5 @@ public class IndexController {
     public String songsheet(){
         return "be/songsheet/list";
     }
-
 
 }

@@ -73,9 +73,9 @@
           </div>
         </div>
         <div class="header-login">
-          <a href="/login/index" class="login">登陆</a>
+          <a href="/fe/login" class="login">登陆</a>
           <a href="/logout" class="open-green">安全退出</a>
-          <a href="javascript:;" id="username" class="open-vip">${lname}</a>
+          <a href="javascript:;" id="username" class="open-vip">${username}</a>
         </div>
       </div>
       <ul class="header-subNav">
@@ -83,7 +83,7 @@
         <li><a href="/discover/singer">歌手</a></li>
         <li><a href="">排行榜</a></li>
         <li><a href="/songsheet">分类歌单</a></li>
-        <li><a href="javascript:;">MV</a></li>
+        <li><a href="/mv">MV</a></li>
       </ul>
     </div>
   </header>

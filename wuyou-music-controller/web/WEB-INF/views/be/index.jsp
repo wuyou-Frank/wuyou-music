@@ -11,6 +11,11 @@
 <script src="/static/js/jquery-3.3.1.min.js" ></script>
 <script src="/static/js/bootstrap.js"></script>
 </head>
+<style>
+	.col-md-8 column a{
+		margin-left: 100px;
+	}
+</style>
 <body>
 <div class="container">
 	<div class="row clearfix">
@@ -18,7 +23,7 @@
 			<h1>wuyou音乐后台管理</h1>
 		</div>
 		<div class="col-md-8 column">
-			<h1 class="pull-right usernaem">当前用户：${aname}</h1>
+			<h1 class="pull-right usernaem">当前用户：admin</h1>
 			<a href="#">安全退出</a>
 		</div>
 	</div>
@@ -56,4 +61,11 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	var name = document.getElementById("username").innerText;
+	if(name == ""){
+		document.getElementById("username").innerText ="用户名";
+		name="用户名";
+	}
+</script>
 </html>

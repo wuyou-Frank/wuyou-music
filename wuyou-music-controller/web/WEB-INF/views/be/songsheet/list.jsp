@@ -48,6 +48,9 @@
 				<li>
 					<a href="/songlist/index">歌曲列表</a>
 				</li>
+				<li>
+					<a href="/songlist/index">MV</a>
+				</li>
 			</ul>
 		</div>
 		<div class="col-md-10 column" id="content">
@@ -247,4 +250,11 @@ $("#last").click(function(){
 }) 
 </script> -->
 </body>
+<script type="text/javascript">
+	var name = document.getElementById("username").innerText;
+	if(name == ""){
+		document.getElementById("username").innerText ="用户名";
+		name="用户名";
+	}
+</script>
 </html>

@@ -23,6 +23,7 @@ public class SingerController {
     private LanguagesingerService languagesingerService;
     @Autowired
     private LanguageService languageService;
+    //查询歌手
     @RequestMapping("/discover/singer")
     public String select(@RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
                          @RequestParam(value = "pageSize",required = false,defaultValue = "10")int pageSize,
@@ -36,6 +37,7 @@ public class SingerController {
         model.addAttribute("singer",pageInfo);
         return "fe/singer/discoversinger";
     }
+    //查询某个歌手的作品等信息
     @RequestMapping("/singer")
     public String singer(@RequestParam(value = "pageNum",required = false,defaultValue = "1")int pageNum,
                          @RequestParam(value = "pageSize",required = false,defaultValue = "10")int pageSize,

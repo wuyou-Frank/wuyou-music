@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -26,23 +25,54 @@
 		margin-left: 210px;
 		margin-top: -60px;
 	}
-    .dimg{
-        margin-left: 100px;
+    .dbody{
+        display: inline-block;
+        background-color: #e8e8e8;
+        margin-left: 180px;
+        width: 702px;
+        height: 1000px;
+        position: relative;
+
     }
-    .dimg>div span{
-        font-size:20px;
+    .dbody>.song{
+      /*background-color: #5bc0de;*/
+      width: 600px;
+      height: 400px;
+      position: relative;
+      margin-left: 50px;
     }
-    .dimg>img{
-        width: 500px;
-        height: 300px;
+    .dbody>.song span:nth-child(1){
+      font-size: 22px;
+      float: left;
     }
-    .dspan{
-        margin-left: 100px;
+    .comment{
+      /*background-color: yellow;*/
+      position: absolute;
+      margin-left: 50px;
+      width: 600px;
+      height: 100px;
     }
-    .dspan li{
-        width: 110px;
-        height: 30px;
-        float: left;
+    .comment>div:nth-child(1){
+      width: 600px;
+      height: 100px;
+    }
+    .comment>div:nth-child(1)>textarea{
+      width: 500px;
+      height: 60px;
+    }
+    .comment>div:nth-child(1)>input{
+      background-color: #66afe9;
+    }
+    .comment>div:nth-child(2){
+      /*background-color: #d6e9c6;*/
+      width: 600px;
+      height: 100px;
+    }
+    .comment>div:nth-child(2)>div{
+      background-color: #d6e9c6;
+      margin-left: 35px;
+      width: 500px;
+      height: 80px;
     }
 </style>
 </head>
@@ -108,86 +138,43 @@
         <li><a href="javascript:;">MV</a></li>
       </ul>
     </div>
-  </header>
-    <div class="dimg">
-        <div><span>${singerEntity.sname}</span></div>
-         <img src="${singerEntity.spicture}" alt="图片">
+</header>
+<div class="dbody">
+  <div class="song">
+      <div>
+        <div>
+          <span>听海</span>
+          <span>张惠妹</span>
+        </div>
+      </div>
+    <div >
+      <video width="600" height="300" controls>
+        <source src="/static/MV/张惠妹 - 听海.mp4" type="video/mp4">
+      </video>
     </div>
-<div class="dspan">
-    <ul>
-        <li><a href="#">热门作品</a></li>
-        <li><a href="#">所有专辑</a></li>
-        <li><a href="#">相关MV</a></li>
-        <li><a href="#">艺人介绍</a></li>
-    </ul>
+  </div>
+  <!--评论-->
+
+  <div class="comment">
+      <!--输入框-->
+    评论
+      <div>
+        <textarea placeholder="评论"></textarea>
+        <input type="button" value="评论">
+      </div>
+      <!--显示框-->
+    精彩评论
+      <div>
+        张三：第一条评论
+            <div>
+              王五： 第一条回复评论
+            </div>
+      </div>
+  </div>
 </div>
+<div class="dbody2"></div>
 
 
-<!--歌曲列表-->
-<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<table class="table">
-				<thead>
-					<tr class="success">
-						<th>
-							编号
-						</th>
-						<th>
-							歌曲标题
-						</th>
-						<th>
-							歌手
-						</th>
-						<th>
-							专辑
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach  var="singer" items="${result.list}">
-						<tr class="info">
-						<td>
-							${singer.slid}
-						</td>
-						<td>
-                            <a href="/song?slname=${singer.slname}&sname=${singer.sname}&slid=${singer.slid}">${singer.slname}</a>
-                            <a href="/playpages?slid=${singer.slid}">播放</a>
-                            <a href="#">下载</a>
-						</td>
-						<td>
-							${singer.sname}
-						</td>
-						<td>
-							${singer.aname}
-						</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<ul class="pagination">
-				<li>
-					 <a href="/songlist?pageNum=1&${id}">首页</a>
-				</li>
-				<li>
-					 <a href="/songlist?pageNum=${songlist.prePage}&${id}">上一页</a>
-				</li>
-				<li>
-					 <a href="/songlist?pageNum=${songlist.nextPage}&${id}">下一页</a>
-				</li>
-				<li>
-					 <a href="/songlist?pageNum=${songlist.pages}&${id}">尾页</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-		</div>
-	</div>
-</div>
 
 </body>
 

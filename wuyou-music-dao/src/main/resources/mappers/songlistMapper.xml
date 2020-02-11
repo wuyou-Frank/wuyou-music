@@ -27,6 +27,17 @@
         or s.sname like "%"#{name}"%"
         order by slid
     </select>
+
+    <select id="getSong" resultType="com.entity.SongListEntity">
+        select s.sname,sl.slname,sl.slsong_address,a.aname,sl.slid
+        from singer_song_list_album ssla
+        join singer s on ssla.sid = s.sid
+        join song_list sl on ssla.slid = sl.slid
+        join album a on ssla.aid = a.aid
+        where sl.slid = #{slid} and sl.slname = #{slname} and s.sname = #{sname}
+    </select>
+
+
     <insert id="insert" parameterType="com.entity.SongListEntity">
         insert into song_list(slname, slsong_address, slimg_address, song_sheetid)
          values

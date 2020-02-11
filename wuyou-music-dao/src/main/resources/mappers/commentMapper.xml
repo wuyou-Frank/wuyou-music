@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CommentDao">
+    <select id="getAll" resultType="com.entity.CommentEntity">
+    select ccus.ccusid,
+           u.ulid,u.ulname,
+           c.commentid,c.commentcontent,
+           s.slid,s.slname
+    from comment_comentreply_user_song ccus
+    join userlogin u on u.ulid = ccus.userid
+    join comment c on c.commentid = ccus.commentid
+    join song_list s on s.slid = ccus.songid
+    where s.slid = #{slid}
+    order by c.commenttime
+    </select>
+</mapper>

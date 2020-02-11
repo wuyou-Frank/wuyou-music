@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CommentreplyDao">
+    <select id="getAll" resultType="com.entity.CommentreplyEntity">
+        select ccus.ccusid,
+               u.ulid,u.ulname,
+               c.commentid,c.commentcontent,
+               cr.commentreplyid,cr.commentreplycontent
+        from comment_comentreply_user_song ccus
+        join userlogin u on u.ulid = ccus.userid
+        join comment c on c.commentid = ccus.commentid
+        join commentreply cr on cr.commentreplyid = ccus.commentreplyid
+        where c.commentid = #{commentid}
+    </select>
+
+</mapper>

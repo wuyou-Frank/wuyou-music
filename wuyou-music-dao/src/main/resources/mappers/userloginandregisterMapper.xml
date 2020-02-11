@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserLoginAndRegisterDao">
+    <select id="getAll" resultType="com.entity.UserLoginAndRegisterEntity">
+        select ulid, ulname, ulpassword from userlogin
+    </select>
+    <insert id="insert" parameterType="com.entity.UserLoginAndRegisterEntity">
+        insert into userlogin(ulname, ulpassword) values (#{ulname},#{ulpassword})
+    </insert>
+    <delete id="delete">
+        delete from userlogin where ulid = #{id}
+    </delete>
+    <update id="update" parameterType="com.entity.UserLoginAndRegisterEntity">
+        update userlogin set ulname = #{ulname},ulpassword = #{ulpassword} where ulid = #{id}
+    </update>
+</mapper>

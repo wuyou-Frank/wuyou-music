@@ -25,6 +25,11 @@ public class SongListServiceImpl implements SongListService {
         return songListDao.getByName(pageNum,pageSize,name);
     }
 
+    @Override
+    public SongListEntity getSong( String slname, String sname, int slid) {
+        return songListDao.getSong( slname, sname, slid);
+    }
+
 
     @Override
     public void update(SongListEntity songListEntity) {
